@@ -11,5 +11,17 @@ fn main() {
         }
         prev = numbers_int[i];
     }
-    println!("{}", counter);
+    println!("Part One: {}", counter);
+
+    // Part 2 - sliding window
+    // A+B+C > B+C+D ---> A > D ? aka offset by 2
+    prev = numbers_int[0];
+    counter = 0;
+    for i in 3..numbers_int.len() {
+        if numbers_int[i] > prev {
+            counter += 1
+        }
+        prev = numbers_int[i - 2]
+    }
+    println!("Part Two: {}", counter)
 }
